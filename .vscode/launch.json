@@ -1,14 +1,12 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "6502",
+            "type": "node-terminal",
             "request": "launch",
-            "name": "Launch 6502",
-            "preLaunchTask": "${defaultBuildTask}"
+            "name": "Beeb run in b2 Debug",
+            "command": "make run",
+            "cwd": "${workspaceFolder}"
         }
     ]
 }

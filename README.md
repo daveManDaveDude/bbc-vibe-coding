@@ -72,6 +72,7 @@ VS Code tasks call the same Make targets:
 - `Beeb clean`
 
 `Beeb build` is marked as the default build task, so `Terminal: Run Build Task` maps straight to `make build`.
+Pressing F5 runs the built-in `Beeb run in b2 Debug` launch configuration, which executes `make run` in a VS Code terminal and reloads the latest disc in `b2 Debug`.
 
 ## Working With Codex
 

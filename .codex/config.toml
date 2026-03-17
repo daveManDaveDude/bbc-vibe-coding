@@ -1,3 +1,12 @@
 # Prefer the repo's Make targets so Codex sessions have a small, stable surface.
 # Keep automation behind Make targets and scripts rather than ad-hoc shell commands.
+
+
+# .codex/config.toml
+# Repo-local Codex defaults
+
+# Prefer deeper reasoning for code changes in this repo.
 model_reasoning_effort = "high"
+
+# Make file citations clickable in VS Code-supported Codex surfaces.
+file_opener = "vscode"
