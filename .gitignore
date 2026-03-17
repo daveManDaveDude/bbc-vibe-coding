@@ -1,0 +1,8 @@
+build/*
+!build/.gitkeep
+
+.DS_Store
+*.swp
+*.swo
+*.tmp
+*~
