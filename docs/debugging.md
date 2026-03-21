@@ -1,23 +1,37 @@
 # Debugging
 
-`b2 Debug` is the primary debugger for this repo.
+This repo treats `b2 Debug` as the main debugger. Keep it open while you work and use the Make targets to rebuild and reload the latest disc image.
 
-## Basic Loop
+## Intended Loop
 
-1. Open `b2 Debug`.
-2. Set breakpoints in its disassembly or memory views.
-3. Run `make run` to rebuild and rerun `build/game.ssd`.
-4. Step, inspect registers, memory, and disassembly.
-5. Repeat.
+1. Set or adjust a breakpoint in `b2 Debug`.
+2. Run `make build` after editing code.
+3. Run `make run` to load the latest [build/game.ssd](/Users/david/Documents/bbc-vibe-coding/build/game.ssd) into the current `b2 Debug` window.
+4. Let the program stop, then inspect memory and disassembly in `b2 Debug`.
+5. Edit, rebuild, rerun, and repeat.
 
-## Useful Conventions
+`make run` already rebuilds before it reloads, so in day-to-day use it is often the only command you need. `make build` is still useful on its own when you just want fresh listing files or want to confirm the code assembles cleanly.
 
-- The current bootable disc image is always [build/game.ssd](/Users/david/Documents/bbc-vibe-coding/build/game.ssd).
-- `make run` is the fastest way to get the newest image back into the emulator.
-- `BRK` is a reasonable temporary development trap when you want execution to stop at a known point.
+## Finding The Right Address
 
-## b2 Debug Tips
+- [build/game.lst](/Users/david/Documents/bbc-vibe-coding/build/game.lst) shows the assembled address of each instruction.
+- [build/game.labels](/Users/david/Documents/bbc-vibe-coding/build/game.labels) maps labels to addresses.
+- `make where QUERY=print_loop` or `make where QUERY=191E` is the quickest way to search those files from the terminal.
 
-- Use the `Debug` menu to stop and run the machine.
-- Right-click bytes or addresses in debugger views to add breakpoints.
-- Keep the emulator open during development so the HTTP API can reload the newest build quickly.
+If a rebuild moves code around, update the breakpoint to match the new address.
+
+## Inspecting State
+
+- Use the memory and disassembly views in `b2 Debug` once execution stops.
+- `make peek ADDR=1918 LEN=16` is handy for quick scripted memory reads.
+- `make poke ADDR=0070 BYTES="25 19"` is useful for temporary experiments without rebuilding.
+- `make reset` resets the current `b2 Debug` machine.
+
+## Optional `BRK` Trap
+
+`BRK` is a simple temporary trap when you want execution to stop at a known point during development. It is useful as short-lived scaffolding, but treat it as a debug aid and remove it once you are done with that investigation.
+
+## Notes
+
+- `make debug-help` prints a short reminder of the debug files and helper commands.
+- VS Code `F5` still works as a shortcut because it runs the same `make run` flow, but the real debugging happens in `b2 Debug`.

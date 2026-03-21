@@ -1,0 +1,112 @@
+{
+  "sources": {
+    "5350706112242209": "src/game.asm"
+  },
+  "labels": {
+    ".start": 6400,
+    ".print_string": 6408,
+    ".print_loop": 6410,
+    ".print_done": 6415,
+    ".message": 6416,
+    ".end": 6477
+  },
+  "symbols": {},
+  "addresses": {
+    "6400": {
+      "file": 5350706112242209,
+      "line": 13,
+      "column": 4,
+      "parent": null
+    },
+    "6402": {
+      "file": 5350706112242209,
+      "line": 17,
+      "column": 4,
+      "parent": null
+    },
+    "6405": {
+      "file": 5350706112242209,
+      "line": 20,
+      "column": 4,
+      "parent": null
+    },
+    "6407": {
+      "file": 5350706112242209,
+      "line": 16,
+      "column": 4,
+      "parent": null
+    },
+    "6408": {
+      "file": 5350706112242209,
+      "line": 23,
+      "column": 4,
+      "parent": null
+    },
+    "6410": {
+      "file": 5350706112242209,
+      "line": 26,
+      "column": 4,
+      "parent": null
+    },
+    "6412": {
+      "file": 5350706112242209,
+      "line": 28,
+      "column": 4,
+      "parent": null
+    },
+    "6413": {
+      "file": 5350706112242209,
+      "line": 29,
+      "column": 4,
+      "parent": null
+    },
+    "6415": {
+      "file": 5350706112242209,
+      "line": 31,
+      "column": 4,
+      "parent": null
+    },
+    "6416": {
+      "file": 5350706112242209,
+      "line": 23,
+      "column": 4,
+      "parent": null
+    },
+    "6418": {
+      "file": 5350706112242209,
+      "line": 25,
+      "column": 4,
+      "parent": null
+    },
+    "6420": {
+      "file": 5350706112242209,
+      "line": 26,
+      "column": 4,
+      "parent": null
+    },
+    "6422": {
+      "file": 5350706112242209,
+      "line": 27,
+      "column": 4,
+      "parent": null
+    },
+    "6425": {
+      "file": 5350706112242209,
+      "line": 28,
+      "column": 4,
+      "parent": null
+    },
+    "6426": {
+      "file": 5350706112242209,
+      "line": 29,
+      "column": 4,
+      "parent": null
+    },
+    "6428": {
+      "file": 5350706112242209,
+      "line": 31,
+      "column": 4,
+      "parent": null
+    }
+  }
+}

@@ -3,7 +3,7 @@
 This repo is a macOS-first BBC Micro Model B assembly game development setup with a small, repeatable command surface:
 
 - `make verify` checks the local toolchain.
-- `make build` assembles `src/game.asm` with BeebAsm and creates `build/game.ssd`.
+- `make build` assembles `src/game.asm`, creates `build/game.ssd`, and writes `build/game.lst` plus `build/game.labels` for address-level debugging.
 - `make run` rebuilds and sends the latest disc image to `b2 Debug` over its local HTTP API.
 
 The first version stays intentionally small. All automation lives behind Make targets and shell scripts, `b2 Debug` is the primary emulator/debugger, and MAME is optional only.
@@ -26,7 +26,7 @@ README.md
 
 1. Run `make verify`.
 2. Install any missing tools the script calls out.
-3. Run `make build` to create `build/game.ssd`.
+3. Run `make build` to create `build/game.ssd`, `build/game.lst`, and `build/game.labels`.
 4. Open `b2 Debug` once and keep it around for the edit -> build -> run loop.
 5. Run `make run` to rebuild and rerun the latest disc image.
 
@@ -50,6 +50,7 @@ More detail lives in [docs/toolchain.md](/Users/david/Documents/bbc-vibe-coding/
 - Edit [src/game.asm](/Users/david/Documents/bbc-vibe-coding/src/game.asm).
 - Keep shared BBC constants in [src/lib/os.asm](/Users/david/Documents/bbc-vibe-coding/src/lib/os.asm) and tiny helper macros in [src/lib/macros.asm](/Users/david/Documents/bbc-vibe-coding/src/lib/macros.asm).
 - Run `make build` for a new bootable DFS image.
+- Check `build/game.lst` or `build/game.labels` when you need to translate source into `b2` breakpoint addresses.
 - Run `make run` to push the latest `build/game.ssd` into `b2 Debug`.
 - Set breakpoints, inspect memory, and step in `b2 Debug`.
 
@@ -62,6 +63,15 @@ Useful overrides:
 - `B2_WINDOW=b2 make run`
 - `B2_CONFIG='your b2 config name' make run`
 
+Debug helpers:
+
+- `make reset`
+- `make peek ADDR=1918 LEN=16`
+- `make poke ADDR=0070 BYTES="25 19"`
+- `make where QUERY=191E`
+- `make where QUERY=print_loop`
+- `make debug-help`
+
 ## VS Code
 
 VS Code tasks call the same Make targets:
@@ -72,7 +82,8 @@ VS Code tasks call the same Make targets:
 - `Beeb clean`
 
 `Beeb build` is marked as the default build task, so `Terminal: Run Build Task` maps straight to `make build`.
-Pressing F5 runs the built-in `Beeb run in b2 Debug` launch configuration, which executes `make run` in a VS Code terminal and reloads the latest disc in `b2 Debug`.
+Pressing F5 runs the `Beeb run` launch configuration, which triggers `make run` and then immediately exits the short-lived VS Code debug session.
+Use `b2 Debug` itself for breakpoints, stepping, memory, and disassembly once the emulator is running.
 
 ## Working With Codex
 

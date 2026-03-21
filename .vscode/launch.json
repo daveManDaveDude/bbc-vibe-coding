@@ -2,11 +2,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "node-terminal",
+            "type": "debugpy",
             "request": "launch",
-            "name": "Beeb run in b2 Debug",
-            "command": "make run",
-            "cwd": "${workspaceFolder}"
+            "name": "Beeb run",
+            "program": "${workspaceFolder}/.vscode/f5_noop.py",
+            "console": "internalConsole",
+            "internalConsoleOptions": "neverOpen",
+            "preLaunchTask": "Beeb run"
         }
     ]
 }

@@ -524,10 +524,26 @@ Add a next-steps planning document to the BBC Micro repo.
 
 Requirements:
 - Create docs/next-steps.md
-- Describe the first implementation milestones after environment setup: display init, input, movement, rendering experiments, and a basic playable loop
-- Keep it planning-only, not code-heavy
+- Outline these first gameplay-facing milestones in order:
+  - clear screen / set mode
+  - draw static player or enemy state
+  - keyboard input
+  - simple movement
+  - sprite-like or character-based rendering experiments
+- Keep it planning-only, not implementation
 - Make it suitable for feeding into future Codex sessions
+- Keep the repo framed as an environment-first foundation rather than a game-heavy starter
 ```
+
+---
+
+## Current repo status
+
+At the time of this review, the environment plan is effectively complete through the main setup phases:
+
+- Phases 1 to 9 are represented in the current repo structure, scripts, docs, and Make targets.
+- The repo now also includes optional debug helpers beyond the original minimum surface: `make reset`, `make peek`, `make poke`, `make where`, and `make debug-help`.
+- Phase 10 remains intentionally planning-only and can be added later as `docs/next-steps.md` when you want to pivot from environment setup into gameplay work.
 
 ---
 
@@ -659,4 +675,3 @@ Success criteria:
 - VS Code tasks work without needing custom extensions
 - A new Codex session can understand the repo by reading the README
 ```
-
